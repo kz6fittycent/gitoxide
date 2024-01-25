@@ -48,6 +48,9 @@ parts:
       snapcraftctl pull
       snapcraftctl set-version "$(git describe --tags | sed 's/^v//')"
     
+    override-build: |
+      rustup default stable
+      
     build-packages:
       - cmake
       
