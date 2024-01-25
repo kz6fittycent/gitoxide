@@ -22,7 +22,7 @@ compression: lzo
 
 apps:
   gitoxide:
-    command: bin/gix
+    command: usr/bin/gix
     environment:
       PATH: $SNAP/bin/:$PATH       
     plugs:
@@ -30,7 +30,7 @@ apps:
       - home
   
   ein:
-    command: bin/ein
+    command: usr/bin/ein
     environment:
       PATH: $SNAP/bin/:$PATH       
     plugs:
@@ -46,7 +46,7 @@ parts:
 
     override-pull: |
       snapcraftctl pull
-      snapcraftctl set-version "$(git describe --tags | sed 's/^v//')"
+      snapcraftctl set-version "$(git describe --tags | cut -d "-" -f2 | sed 's/^v//')"
     
     override-build: |
       rustup default stable
