@@ -56,17 +56,17 @@ parts:
     plugin: nil
     build-packages: [wget]
     build-environment:
-      - RUSTUP_HOME: $CRAFT_PART_INSTALL/usr/share/rust
-      - CARGO_HOME: $CRAFT_PART_INSTALL/usr/share/rust
-      - CARGO_BUILD_JOBS: $CRAFT_PARALLEL_BUILD_COUNT
+      - RUSTUP_HOME: $SNAPCRAFT_PART_INSTALL/usr/share/rust
+      - CARGO_HOME: $SNAPCRAFT_PART_INSTALL/usr/share/rust
+      - CARGO_BUILD_JOBS: $SNAPCRAFT_PARALLEL_BUILD_COUNT
     override-pull: |
       wget https://sh.rustup.rs -O $CRAFT_PART_SRC/rustup-init.sh
       chmod +x $CRAFT_PART_SRC/rustup-init.sh
     override-build: |
-      $CRAFT_PART_SRC/rustup-init.sh -y --no-modify-path
+      $SNAPCRAFT_PART_SRC/rustup-init.sh -y --no-modify-path
       mkdir -p $CRAFT_PART_INSTALL/usr/bin
       for i in `ls $RUSTUP_HOME/bin/`; do
-        ln -s ../share/rust/bin/$i $CRAFT_PART_INSTALL/usr/bin/$i
+        ln -s ../share/rust/bin/$i $SNAPCRAFT_PART_INSTALL/usr/bin/$i
       done
     override-prime: |
       echo 'Skip Prime'
