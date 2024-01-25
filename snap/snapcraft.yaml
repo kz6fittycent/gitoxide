@@ -54,7 +54,8 @@ parts:
       
   rustup:
     plugin: nil
-    build-packages: [wget]
+    build-packages:
+      - wget
     build-environment:
       - RUSTUP_HOME: $SNAPCRAFT_PART_INSTALL/usr/share/rust
       - CARGO_HOME: $SNAPCRAFT_PART_INSTALL/usr/share/rust
