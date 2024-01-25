@@ -51,6 +51,12 @@ parts:
     build-packages:
       - cmake
       
+    build-packages:
+      - cargo
+      - rustc
+      - pkg-config
+      - librust-openssl-sys-dev    
+      
   rustup:
     plugin: nil
     build-packages:
