@@ -70,10 +70,4 @@ parts:
         ln -s ../share/rust/bin/$i $SNAPCRAFT_PART_INSTALL/usr/bin/$i
       done
     override-prime: |
-      echo 'Skip Prime'
-
-    build-packages:
-      - cargo
-      - rustc
-      - pkg-config
-      - librust-openssl-sys-dev      
+      echo 'Skip Prime' 
