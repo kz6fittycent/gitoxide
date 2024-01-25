@@ -60,8 +60,8 @@ parts:
       - CARGO_HOME: $SNAPCRAFT_PART_INSTALL/usr/share/rust
       - CARGO_BUILD_JOBS: $SNAPCRAFT_PARALLEL_BUILD_COUNT
     override-pull: |
-      wget https://sh.rustup.rs -O $CRAFT_PART_SRC/rustup-init.sh
-      chmod +x $CRAFT_PART_SRC/rustup-init.sh
+      wget https://sh.rustup.rs -O $SNAPCRAFT_PART_SRC/rustup-init.sh
+      chmod +x $SNAPCRAFT_PART_SRC/rustup-init.sh
     override-build: |
       $SNAPCRAFT_PART_SRC/rustup-init.sh -y --no-modify-path
       mkdir -p $CRAFT_PART_INSTALL/usr/bin
