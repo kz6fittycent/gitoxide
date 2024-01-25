@@ -65,7 +65,7 @@ parts:
       chmod +x $SNAPCRAFT_PART_SRC/rustup-init.sh
     override-build: |
       $SNAPCRAFT_PART_SRC/rustup-init.sh -y --no-modify-path
-      mkdir -p $CRAFT_PART_INSTALL/usr/bin
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
       for i in `ls $RUSTUP_HOME/bin/`; do
         ln -s ../share/rust/bin/$i $SNAPCRAFT_PART_INSTALL/usr/bin/$i
       done
