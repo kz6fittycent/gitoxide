@@ -41,12 +41,13 @@ parts:
   gitoxide:
     source: https://github.com/Byron/gitoxide
     source-type: git
+    source-tag: latest
     plugin: rust
     after: [cargo]
 
     override-pull: |
       snapcraftctl pull
-      snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
+      snapcraftctl set-version "$(git describe --tags | sed 's/^v//')"
     
     build-packages:
       - cmake
