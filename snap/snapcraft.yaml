@@ -41,7 +41,6 @@ parts:
   gitoxide:
     source: https://github.com/Byron/gitoxide
     source-type: git
-    source-tag: latest
     plugin: rust
     after: [rustup]
 
